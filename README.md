@@ -8,6 +8,7 @@ The project aims to develop a wearable system for detection player movement and 
 - [Glove](#glove)
 
 ## Laser_Gun
+[Code for Laser Gun](ir_transmitter/ir_transmitter.ino)
 
 - Bluno Beetle * 1
 - IR Transmitter Module * 1
@@ -19,6 +20,7 @@ The project aims to develop a wearable system for detection player movement and 
 ![Laser Gun Circuit](images/laser_gun.png)
 
 ## Vest
+[Code for Vest](ir_receiver/ir_receiver.ino)
 
 - Bluno Beetle * 1
 - IR Receiver Module * 1
@@ -29,6 +31,7 @@ The project aims to develop a wearable system for detection player movement and 
 ![Vest Circuit](images/vest.png)
 
 ## Glove
+[Code for Glove](BlunoIMU/BlunoIMU.ino)
 
 - Bluno Beetle * 1
 - MPU6050 * 1
