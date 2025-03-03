@@ -31,12 +31,14 @@ The project aims to develop a wearable system for detection player movement and 
 ![Vest Circuit](images/vest.png)
 
 ## Glove
-[Code for Glove](BlunoIMU/BlunoIMU.ino)
+[Code for Glove](new_imu/new_imu.ino)
 
 - Bluno Beetle * 1
 - MPU6050 * 1
 - Lipo Battery * 1
 - Boost Converter * 1
+
+Not in use - [Code for Glove (Interrupt Version)](BlunoIMU/BlunoIMU.ino)
 
 ### Glove Circuit
 ![Glove Circuit](images/glove.png)

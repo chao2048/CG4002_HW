@@ -19,7 +19,7 @@ void setup() {
   setup_imu();
 
   // Configure the MPU6050
-  mpu.setAccelerometerRange(MPU6050_RANGE_4_G);
+  mpu.setAccelerometerRange(MPU6050_RANGE_8_G);
   mpu.setGyroRange(MPU6050_RANGE_500_DEG);
   mpu.setFilterBandwidth(MPU6050_BAND_184_HZ);
 
@@ -44,7 +44,7 @@ void setup_imu() {
   //setupt motion detection
   mpu.setHighPassFilter(MPU6050_HIGHPASS_2_5_HZ); // set high pass filter for accelerometer to remove the constant effect of gravity
   mpu.setMotionDetectionThreshold(1); // set the motion detection threshold register of MPU6050
-  mpu.setMotionDetectionDuration(10); // set the detection duration to 10ms
+  mpu.setMotionDetectionDuration(15); // set the detection duration to 10ms
   mpu.setInterruptPinLatch(true);	// Keep it latched.  Will turn off when reinitialized.
   mpu.setInterruptPinPolarity(true);
   mpu.setMotionInterrupt(true); // motion interrupt will be activated based on threshold and duration.
