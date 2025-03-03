@@ -23,7 +23,6 @@ uint8_t sCommand = 0x06;
 void applyDamage(uint8_t damage);
 void updateLED();
 void handleIRSignal();
-void testLED();
 
 void circleLED();
 
@@ -47,13 +46,6 @@ void loop() {
   // }
 }
 
-void testLED() {
-  for (int i = 100; i > 0; i -= 8) {
-    health = i;
-    updateLED();
-  }
-  delay(5000);
-}
 
 void handleIRSignal() {
   if (IrReceiver.decode()) {
@@ -61,9 +53,9 @@ void handleIRSignal() {
       // applyDamage(5);
       // sendPacket(VESTSHOT_PACKET);
       // waitingForVestACK = true;
-      health -= 10;
+      health -= 5;
+      circleLED();
       updateLED();
-      // Serial.println("IR Received.");
       lastVestShotTime = millis();
     }
     IrReceiver.resume();
@@ -81,14 +73,17 @@ void applyDamage(uint8_t damage) {
 }
 
 void updateLED() {
-  int full_leds = min(health/8, 12);  
-
-  for(int i = 0; i < NUMPIXELS; i++) {
+  int full_leds = health/10 + 2;
+  for(int i  = 0; i < NUMPIXELS; i++) {
     if (i < full_leds) {
       pixels.setPixelColor(i,pixels.Color(0,0,20));
-    } else {
+    } else if (i > full_leds) {
       pixels.setPixelColor(i,pixels.Color(20,0,0));
-    }
+    } else if (i == full_leds && health%10 != 0) {
+      pixels.setPixelColor(i,pixels.Color(20,20,0));
+    } else if (i == full_leds) {
+      pixels.setPixelColor(i,pixels.Color(20,0,0));
+    } 
     pixels.show();
     delay(100);
   }
@@ -98,12 +93,12 @@ void circleLED() {
   for(int i = 0; i < NUMPIXELS; i++) {
     pixels.setPixelColor(i,pixels.Color(20,0,0));
     pixels.show();
-    delay(100);
+    delay(10);
   }
 
   for(int i = 0; i < NUMPIXELS; i++) {
-    pixels.setPixelColor(i,pixels.Color(0,0,20));
+    pixels.setPixelColor(i,pixels.Color(80,20,0));
     pixels.show();
-    delay(100);
+    delay(5);
   }
 } 
